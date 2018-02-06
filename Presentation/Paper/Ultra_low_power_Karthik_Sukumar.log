@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.10.25)  5 FEB 2018 16:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.17 (TeX Live 2016) (preloaded format=pdflatex 2017.10.25)  6 FEB 2018 23:06
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -793,73 +793,58 @@ File: img/Pictures/Energy_comparison.png Graphic file (type png)
 
 <use img/Pictures/Energy_comparison.png>
 Package pdftex.def Info: img/Pictures/Energy_comparison.png used on input line 
-65.
+67.
 (pdftex.def)             Requested size: 252.0pt x 123.62195pt.
-LaTeX Font Info:    Try loading font information for U+msa on input line 76.
+LaTeX Font Info:    Try loading font information for U+msa on input line 77.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsa.fd
 File: umsa.fd 2013/01/14 v3.01 AMS symbols A
 )
-LaTeX Font Info:    Try loading font information for U+msb on input line 76.
+LaTeX Font Info:    Try loading font information for U+msb on input line 77.
 
 (/usr/local/texlive/2016/texmf-dist/tex/latex/amsfonts/umsb.fd
 File: umsb.fd 2013/01/14 v3.01 AMS symbols B
 )
-<img/network_topologies.png, id=2, 533.74406pt x 403.5075pt>
-File: img/network_topologies.png Graphic file (type png)
+Underfull \hbox (badness 1509) in paragraph at lines 77--86
+[]\OT1/ptm/m/n/10 Dynamic power per op-er-a-tion is given by ($\OML/cmm/m/it/10
+ P[] \OT1/cmr/m/n/10 =
+ []
 
-<use img/network_topologies.png>
-Package pdftex.def Info: img/network_topologies.png used on input line 86.
-(pdftex.def)             Requested size: 252.0pt x 190.51053pt.
+<img/Pictures/Level_shift_weak.png, id=2, 420.1296pt x 248.127pt>
+File: img/Pictures/Level_shift_weak.png Graphic file (type png)
+
+<use img/Pictures/Level_shift_weak.png>
+Package pdftex.def Info: img/Pictures/Level_shift_weak.png used on input line 9
+5.
+(pdftex.def)             Requested size: 252.0pt x 148.82811pt.
+
+<img/Pictures/Level_shifter_solution.png, id=4, 659.5842pt x 212.9556pt>
+File: img/Pictures/Level_shifter_solution.png Graphic file (type png)
+
+<use img/Pictures/Level_shifter_solution.png>
+Package pdftex.def Info: img/Pictures/Level_shifter_solution.png used on input 
+line 108.
+(pdftex.def)             Requested size: 252.0pt x 81.35938pt.
  [1{/usr/local/texlive/2016/texmf-var/fonts/map/pdftex/updmap/pdftex.map}
 
 
- <./img/Pictures/Energy_comparison.png>]
-<img/skew_energy_normal.png, id=17, 666.23906pt x 483.30562pt>
-File: img/skew_energy_normal.png Graphic file (type png)
+ <./img/Pictures/Energy_comparison.png> <./img/Pictures/Level_shift_weak.png>]
+<img/Pictures/Power_profile_ARM11.png, id=19, 448.5558pt x 251.9814pt>
+File: img/Pictures/Power_profile_ARM11.png Graphic file (type png)
 
-<use img/skew_energy_normal.png>
-Package pdftex.def Info: img/skew_energy_normal.png used on input line 99.
-(pdftex.def)             Requested size: 201.60077pt x 146.24649pt.
+<use img/Pictures/Power_profile_ARM11.png>
+Package pdftex.def Info: img/Pictures/Power_profile_ARM11.png used on input lin
+e 161.
+(pdftex.def)             Requested size: 252.0pt x 141.56616pt.
 
+<img/Pictures/AP.png, id=20, 310.761pt x 271.7352pt>
+File: img/Pictures/AP.png Graphic file (type png)
+ <use img/Pictures/AP.png>
+Package pdftex.def Info: img/Pictures/AP.png used on input line 170.
+(pdftex.def)             Requested size: 252.0pt x 220.35721pt.
 
-LaTeX Warning: Citation `b8' on page 2 undefined on input line 106.
-
-<img/skew_slew_variations.png, id=18, 338.01282pt x 536.75531pt>
-File: img/skew_slew_variations.png Graphic file (type png)
-
-<use img/skew_slew_variations.png>
-Package pdftex.def Info: img/skew_slew_variations.png used on input line 110.
-(pdftex.def)             Requested size: 201.60077pt x 320.14734pt.
-
-<img/repeater.png, id=19, 846.91406pt x 363.60844pt>
-File: img/repeater.png Graphic file (type png)
- <use img/repeater.png>
-Package pdftex.def Info: img/repeater.png used on input line 120.
-(pdftex.def)             Requested size: 201.60077pt x 86.55208pt.
-
-[2 <./img/network_topologies.png> <./img/skew_energy_normal.png> <./img/skew_sl
-ew_variations.png> <./img/repeater.png>]
-<img/cuts.png, id=28, 400.11984pt x 149.43329pt>
-File: img/cuts.png Graphic file (type png)
- <use img/cuts.png>
-Package pdftex.def Info: img/cuts.png used on input line 144.
-(pdftex.def)             Requested size: 252.0pt x 94.11609pt.
-
-<img/tree_examples.png, id=29, 469.00218pt x 338.76563pt>
-File: img/tree_examples.png Graphic file (type png)
-
-<use img/tree_examples.png>
-Package pdftex.def Info: img/tree_examples.png used on input line 153.
-(pdftex.def)             Requested size: 252.0pt x 182.02094pt.
-
-<img/tsv_sweep.png, id=30, 268.37766pt x 223.96172pt>
-File: img/tsv_sweep.png Graphic file (type png)
- <use img/tsv_sweep.png>
-Package pdftex.def Info: img/tsv_sweep.png used on input line 165.
-(pdftex.def)             Requested size: 252.0pt x 210.29507pt.
-
-[3 <./img/cuts.png> <./img/tree_examples.png> <./img/tsv_sweep.png>]
+[2 <./img/Pictures/Level_shifter_solution.png> <./img/Pictures/Power_profile_AR
+M11.png> <./img/Pictures/AP.png>]
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -871,37 +856,30 @@ Before submitting the final camera ready copy, remember to:
  uses only Type 1 fonts and that every step in the generation
  process uses the appropriate paper size.
 
-[4
+[3
 
-] (./Ultra_low_power_Karthik_Sukumar.aux)
-
-LaTeX Warning: There were undefined references.
-
- ) 
+] (./Ultra_low_power_Karthik_Sukumar.aux) ) 
 Here is how much of TeX's memory you used:
- 4325 strings out of 493014
- 62793 string characters out of 6133350
- 125587 words of memory out of 5000000
- 7786 multiletter control sequences out of 15000+600000
- 38913 words of font info for 83 fonts, out of 8000000 for 9000
+ 4287 strings out of 493014
+ 62406 string characters out of 6133350
+ 124580 words of memory out of 5000000
+ 7760 multiletter control sequences out of 15000+600000
+ 34706 words of font info for 70 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
- 37i,7n,26p,887b,242s stack positions out of 5000i,500n,10000p,200000b,80000s
-{/usr/local/texlive/2016/texmf-dist/fonts/enc/dvips/base/8r.enc}</usr/local/t
-exlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi10.pfb></usr/local/te
-xlive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.pfb></usr/local/texl
-ive/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi8.pfb></usr/local/texliv
-e/2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></usr/local/texlive/
-2016/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/local/texlive/201
-6/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/local/texlive/2016
-/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/local/texlive/2016/t
-exmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/local/texlive/2016/texmf-dist/
-fonts/type1/urw/times/utmbi8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/typ
-e1/urw/times/utmr8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/tim
-es/utmri8a.pfb>
-Output written on Ultra_low_power_Karthik_Sukumar.pdf (4 pages, 758282 bytes).
+ 37i,7n,26p,347b,242s stack positions out of 5000i,500n,10000p,200000b,80000s
+{/usr/local/texlive/2016/texmf-dist/
+fonts/enc/dvips/base/8r.enc}</usr/local/texlive/2016/texmf-dist/fonts/type1/pub
+lic/amsfonts/cm/cmmi10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/publ
+ic/amsfonts/cm/cmmi7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public
+/amsfonts/cm/cmr10.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/public/a
+msfonts/cm/cmr7.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/u
+tmb8a.pfb></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmbi8a.pfb
+></usr/local/texlive/2016/texmf-dist/fonts/type1/urw/times/utmr8a.pfb></usr/loc
+al/texlive/2016/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
+Output written on Ultra_low_power_Karthik_Sukumar.pdf (3 pages, 555651 bytes).
 PDF statistics:
- 78 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 57 PDF objects out of 1000 (max. 8388607)
+ 34 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
- 41 words of extra memory for PDF output out of 10000 (max. 10000000)
+ 26 words of extra memory for PDF output out of 10000 (max. 10000000)
 

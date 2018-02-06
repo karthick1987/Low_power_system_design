@@ -2,65 +2,51 @@
 \citation{b1}
 \citation{b2}
 \citation{b1}
+\citation{b3}
+\citation{b6}
 \citation{b4}
 \citation{b5}
 \citation{b6}
-\citation{b1}
-\citation{b1}
-\citation{b7}
-\citation{b2}
-\citation{b2}
-\citation{b1}
 \@writefile{toc}{\contentsline {section}{\numberline {I}Introduction}{1}}
 \newlabel{sec:introduction}{{I}{1}}
 \@writefile{lof}{\contentsline {figure}{\numberline {1}{\ignorespaces Sub/Near-threshold operation. Source: \cite  {b1}}}{1}}
 \newlabel{fig:Energy_comparison}{{1}{1}}
-\@writefile{toc}{\contentsline {section}{\numberline {II}Ultra-Low Voltage Clock Network Design}{1}}
-\newlabel{sec:ulv_design}{{II}{1}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Clock networks behaviour without considering MOSFET process variations}{1}}
-\citation{b1}
-\citation{b1}
-\citation{b8}
-\citation{b1}
-\citation{b1}
-\citation{b1}
-\citation{b1}
-\citation{b1}
-\citation{b2}
-\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Network topologies. Source: \cite  {b1}}}{2}}
-\newlabel{fig:network_topologies}{{2}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Energy and skew over levels in tree. Simulated usinge SPICE without considering MOSFET process variations. Source: \cite  {b1}}}{2}}
-\newlabel{fig:skew_energy_normal}{{3}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}Clock networks behaviour with considering MOSFET process variations}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Skew and slew over levels in tree with considering MOSFET process variations. Source: \cite  {b1}}}{2}}
-\newlabel{fig:skew_slew_variations}{{4}{2}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-C}}Adding buffers in ULV regimes}{2}}
-\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces Driving long interconnects with and without repeaters at 0.3$V$ and 1.8$V$. Source: \cite  {b1}}}{2}}
-\newlabel{fig:repeater}{{5}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {II}Functional Challenges of Near-Threshold Design}{1}}
+\newlabel{sec:Func_challenges}{{II}{1}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-A}}Level Shifters}{1}}
+\@writefile{lof}{\contentsline {figure}{\numberline {2}{\ignorespaces Weak Pull ups Source: \cite  {b3}}}{1}}
+\newlabel{fig:Weak_Pull_ups}{{2}{1}}
+\citation{b7}
 \citation{b2}
 \citation{b2}
 \citation{b2}
-\citation{b2}
-\citation{b2}
-\citation{b2}
-\citation{b2}
-\citation{b2}
-\@writefile{toc}{\contentsline {section}{\numberline {III}Clock Network Design for Through-Silicon Via (TSV) Based 3D ICs}{3}}
-\newlabel{sec:tsv_design}{{III}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}3D Abstract Tree Generation}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {6}{\ignorespaces X/Y-cut followed by two Z-cuts. Source: \cite  {b2}}}{3}}
-\newlabel{fig:cuts}{{6}{3}}
-\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Impact of the TSV count on the clock power}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {7}{\ignorespaces The 3D abstract tree generation under various TSV bounds. (a) shows a top view, (b) shows a 3D view and (c) show the resulting binary tree where the squares denote TSVs. Source: \cite  {b2}}}{3}}
-\newlabel{fig:tree_examples}{{7}{3}}
-\@writefile{lof}{\contentsline {figure}{\numberline {8}{\ignorespaces Clock power over TSV count for a two die stack using 100fF TSVs. The red star denotes the predictet optimum power point found by 3D-MMM-ext algorith which was developed in \cite  {b2}. Source: \cite  {b2}}}{3}}
-\newlabel{fig:tsv_sweep}{{8}{3}}
 \bibcite{b1}{1}
+\@writefile{lof}{\contentsline {figure}{\numberline {3}{\ignorespaces Weak Pull ups Source: \cite  {b6}}}{2}}
+\newlabel{fig:Level_shifter_solution}{{3}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {II-B}}SRAM Design Challenges}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {III}Performance Improvement for Near-Threshold Devices}{2}}
+\newlabel{sec:Perf_challenges}{{III}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-A}}Near-Threshold Device Sizing}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-B}}Wide Dynamic Voltage Scaling}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {III-C}}Parallel Processing}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {IV}Manufacturing Variabilty Challenges}{2}}
+\newlabel{sec:Variablity}{{IV}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-A}}Library Pruning}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {IV-B}}Pipeline Optimization}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {V}Architectural Level Power Reduction Techniques}{2}}
+\newlabel{sec:Case_Study}{{V}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-A}}Case Study: GPS}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {4}{\ignorespaces Power Profile when a GPS interrupt occurs for an ARM11 CPU: \cite  {b2}}}{2}}
+\newlabel{fig:Power_profile_ARM11}{{4}{2}}
+\@writefile{lof}{\contentsline {figure}{\numberline {5}{\ignorespaces SoC Design with Offload Co-Processor(OCP): \cite  {b2}}}{2}}
+\newlabel{fig:AP}{{5}{2}}
+\@writefile{toc}{\contentsline {subsection}{\numberline {\unhbox \voidb@x \hbox {V-B}}Considerations for OCP Design}{2}}
+\@writefile{toc}{\contentsline {subsubsection}{\numberline {\unhbox \voidb@x \hbox {V-B}1}Different ISA}{2}}
+\@writefile{toc}{\contentsline {section}{\numberline {VI}Conclusion}{2}}
 \bibcite{b2}{2}
 \bibcite{b3}{3}
 \bibcite{b4}{4}
 \bibcite{b5}{5}
 \bibcite{b6}{6}
 \bibcite{b7}{7}
-\@writefile{toc}{\contentsline {section}{\numberline {IV}Conclusion}{4}}
-\@writefile{toc}{\contentsline {section}{References}{4}}
+\@writefile{toc}{\contentsline {section}{References}{3}}

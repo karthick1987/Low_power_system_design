@@ -32,16 +32,18 @@
 \maketitle
 
 \begin{abstract}
-In this report the work of J.Zhou et al. \cite{b1} and J.Tang et al. \cite{b2}
-on design techniques for an ultra low-power processor.
+In this paper the works of J.Zhou et al. \cite{b1} and J.Tang et al. \cite{b2}
+on design techniques for an ultra low-power processor is reported.
 
 J.Zhou et al. focusses on Near-Threshold processor design for Ultra low power
-processors. The paper discusses the challenges, performance issue and solutions
-of the above.
+processors. The paper discusses these design challenges, performance issue and solutions
+of the above. The circuit level power reduction techniques are addressed here.
 
 J.Tang et al. discusses a case study by using GPS to demonstate that an
 Ultra-low power processor used along with a heavy applications processor can
-lead to further power savings.
+lead to further power savings. The architectural level power reduction
+techniques are addressed here.
+reduction techniques.
 \end{abstract}
 
 \begin{IEEEkeywords}
@@ -54,12 +56,12 @@ routines
 Power constraint portable devices (e.g. Mobile phones, wearables, IoT
 devices) require ultra low power processors in order to save battery life. Such
 low power devices enable operation with energy harvesters or small baterries.
-Sub and Near threshold devices have been shown to have an overall low power
+Sub and Near-Threshold devices have been shown to have an overall low power
 consumption and past works confirm that Near Threshold designs are more
 efficient than using clock and power gating.
 
-Near threshold designs refer to operating the transistor slightly above the
-threshold region. 
+For further reduction of power consumption without loss of performance we need to look at architectural
+level improvements to preseve scalabililty.
 
 \begin{figure}[htbp]
 	\includegraphics[width=\linewidth]{img/Pictures/Energy_comparison.png}
@@ -69,149 +71,120 @@ threshold region.
 \end{figure}
 
 The major advantage of using the near threshold devices is the decrese in
-dynamic power per operation as ($P_{dyn}=fC_LV_{DD}^2$). But as voltage
-decreses the static power consumed per operation increases. This is because of
-the static power being constant but the time period per operation increasing.
-Hence by adding the two we get a relationship as shown in Fig.
-\ref{fig:Energy_comparison}.
+Near-Threshold designs refer to operating the transistor slightly above the
+threshold region.
 
+Dynamic power per operation is given by ($P_{dyn}=fC_LV_{DD}^2$), and increases
+quadratically with voltage but static power per operation increases with
+decreasing voltage. This is because the static power
+is constant and it increases as the time period per operation increasing.
+Hence by adding the two we get a relationship as shown in Fig. \ref{fig:Energy_comparison}. Although we see that the sub-threshold operation
+has lower energy than the near-threshold, we want to find a balance between
+performance and energy per operation and hence we will investigate the
+functionality, variability issues and performance challenges of Near-Threshold
+design in this paper.
 
+\section{Functional Challenges of Near-Threshold Design}
+\label{sec:Func_challenges}
 
-One of the most popular methods is voltage scaling due to its quadratic savings ($P_{dyn}=fC_LV_{DD}^2$). The used voltage in ultra-low voltage (ULV) applications is close to the threshold voltage ($V_T$). This saves energy, but makes the design less robust and susceptible to MOSFET process variations \cite{b6}.
-The way to achieve a low-voltage clock tree with a minimzed and well-defined skew and with a well-controlled slew is discussed in \cite{b1}. The findings of \cite{b1} are presented in section \ref{sec:ulv_design}.  
+In the past many works have shown that Near-threshold design is easy to implement for ALUs and logic gates. But SRAM and level Shifter have their challenges in operating in the near-threshold region.
 
-Another approach to reduce the power consumed by the clock network is to optimize the network topolgy. While the skew control was well studied in two dimesional ICs \cite{b7}, the optimal topology in nowadays 3D stacked ICs is still being investigated. Through-silicon vias (TSVs) are used for the connection of clock networks on different dies. The impact of the TSV resistance-capacitance (RC) and the TSV count on the clock power, clock skew and clock skew is subject of \cite{b2}. The results of \cite{b2} are presented in section \ref{sec:tsv_design}.
-
-\section{Ultra-Low Voltage Clock Network Design} \label{sec:ulv_design}
-
-Generally, there are multiple ways to design a clock network. These ways are shown in Fig. \ref{fig:network_topologies}. Connecting all sinks (a sink can be anything that needs a clock signal, e.g. flip-flops) without attempting to balance the different paths is called "signal-route". In contrast to that, the H-trees try to take this into account. It is obvious that the path length from the clock source to each sink becomes more equal the higher the H-tree's level is.
-
-\begin{figure}[htbp]
-	\includegraphics[width=\linewidth]{img/network_topologies.png}
-	\centering
-	\caption{Network topologies. Source: \cite{b1}}
-	\label{fig:network_topologies}
-\end{figure}
-
-Furthermore, there is a difference between unbuffered and buffered H-trees. In unbuffered H-trees, the whole circuit is driven by a single driver, whereas in a buffered H-tree several smaller buffers are inserted to drive the tree. Normally, designers tend to use the buffered version, because then each driver has to drive a smaller RC-value and therefore the interconnect delay is mitigated, but as we will see later on this is not longer true for ULV applications.
-
-\subsection{Clock networks behaviour without considering MOSFET process variations}
-Energy consumption and clock skew can be simulated using SPICE. The simulation results for a 0.18$\mu m$ CMOS framework with 0.3$V$ supply voltage are shown in Fig. \ref{fig:skew_energy_normal}.\\
-The skew decreases with the levels in tree as the paths to the sinks become more equal. This holds for both, the bufferd and unbuffered trees. The energy increases with the levels due to the overall wire length becoming larger. For higher tree levels, the bufferd version consumes less energy because the smaller buffers are more energy efficient in driving longer wires.
+\subsection{Level Shifters}
 
 \begin{figure}[htbp]
-	\includegraphics[width=0.8\linewidth]{img/skew_energy_normal.png}
+	\includegraphics[width=\linewidth]{img/Pictures/Level_shift_weak.png}
 	\centering
-	\caption{Energy and skew over levels in tree. Simulated usinge SPICE without considering MOSFET process variations. Source: \cite{b1}}
-	\label{fig:skew_energy_normal}
+	\caption{Weak Pull ups Source: \cite{b3}}
+	\label{fig:Weak_Pull_ups}
 \end{figure}
 
-\subsection{Clock networks behaviour with considering MOSFET process variations}
-Since MOSFET process variations (e.g. random $V_{th}$ mismatch) have an exponential effect on gate delay at ULV circuits \cite{b8} this has to be considered. For this reason M. Seok et al. \cite{b1} performed Monte Carlo simulations with random MOSFET mismatch. The results are shown in Fig. \ref{fig:skew_slew_variations}. In contrast to the simulations without variations, the buffered trees perform much worse (Fig. \ref{fig:skew_slew_variations} (a)) in skew because the buffer delay is not anymore cancelled among buffers and starts to contribute to skew. The skew variability ($\sigma /\mu$) first decreases as more buffer stages are used with increasing tree level and thus the variations are averaged. But after level three it starts to increase again as smaller buffers are more sensitive to process variations.\\
-The slew behaves similarly. The unbuffered version shows a good robustness while the buffered version behaves worse. The slew variability increases with the levels in tree. There is no averaging effect for the slew variability because the slew is mainly determined by the last buffer stage before the sink.
+In the near-threshold operation the pull down network as shown in the Fig. \ref{fig:Weak_Pull_ups} is weaker than the pull up network and consequently the the level shifter cant pull down to ground.
+
+The issue of converting a near-threshold voltage to a super-threshold voltage
+therefore needs complex circuitry which is not only low power in nature but
+also scales in performance with voltage. 
 
 \begin{figure}[htbp]
-	\includegraphics[width=0.8\linewidth]{img/skew_slew_variations.png}
+	\includegraphics[width=\linewidth]{img/Pictures/Level_shifter_solution.png}
 	\centering
-	\caption{Skew and slew over levels in tree with considering MOSFET process variations. Source: \cite{b1}}
-	\label{fig:skew_slew_variations}
+	\caption{Weak Pull ups Source: \cite{b6}}
+	\label{fig:Level_shifter_solution}
 \end{figure}
 
-\subsection{Adding buffers in ULV regimes}
-In higher voltage regimes adding buffers to long interconnects often improves the interconnection delay (see Fig. \ref{fig:repeater}). For ULV applications this is not longer true, because the delay penalty for adding buffers is larger than the reduction of wire RC. As shown in Fig. \ref{fig:repeater} the version without repeater still performs better for a 30mm wire.
+In \cite{b4}\cite{b5}\cite{b6}, current mirrors based design is suggested which provides performance scalablity
+and high energy efficiency as shown in Fig. \ref{fig:Level_shifter_solution}.
+
+\subsection{SRAM Design Challenges}
+SRAM prefers small transistors for increased density but
+
+\section{Performance Improvement for Near-Threshold Devices} \label{sec:Perf_challenges}
+
+\subsection{Near-Threshold Device Sizing}
+\subsection{Wide Dynamic Voltage Scaling}
+\subsection{Parallel Processing}
+
+\section{Manufacturing Variabilty Challenges} \label{sec:Variablity}
+
+\subsection{Library Pruning}
+\subsection{Pipeline Optimization}
+
+\section{Architectural Level Power Reduction Techniques} \label{sec:Case_Study}
+For high performance embedded devices we need to consider architectural design
+changes to maintain the performance. The Application Processor(AP) is the most
+power consuming component in the design. In order to reduce the power consumption as
+much as possible we need to wake up the AP only when its absolutely necessary.
+Given that the peak workload on most mobile embedded devices is often
+periodic interrupts or user requests we can utilise this to offload the
+AP of servicing these routines.
+
+This is illustrated with the help of a case study to show the advantages of
+using an Ultra Low Power Offload Co-processor(OCP), which could be one of the
+processors incorporating all the circuit level design techniques described in the earlier sections.
+
+\subsection{Case Study: GPS}
+
+GPS is chosen for our case study as it usually samples at 1Hz and is a periodic
+event. Research has shown that GPS can consume upto 95\% of the total power
+consumption of the mobile device \cite{b7}.
+
+The system we are considering here is a typical ARM11 micro-processor which is
+commonly found in most mobile phones these days. Fig. \ref{fig:Power_profile_ARM11} shows that intially the CPU is in sleep mode
+consuming 20mW before the interrupt occurs. The interrupt is excuted in 2ms (at
+1000mW) and then cant drop straight away to sleep mode, instead it must operate
+at a lower frequency consuming 650mW for 100ms. It drops into another mode at
+400mW for another 100ms. Only after excuting in all these intermediate modes
+does the CPU go back into deep sleep. Therefore although the interrupt only
+takes 2ms to execute the application processor remains active for over 200ms
+consuming 60mJ of energy.
 
 \begin{figure}[htbp]
-	\includegraphics[width=0.8\linewidth]{img/repeater.png}
+	\includegraphics[width=\linewidth]{img/Pictures/Power_profile_ARM11.png}
 	\centering
-	\caption{Driving long interconnects with and without repeaters at 0.3$V$ and 1.8$V$. Source: \cite{b1}}
-	\label{fig:repeater}
+    \caption{Power Profile when a GPS interrupt occurs for an ARM11 CPU: \cite{b2}}
+    \label{fig:Power_profile_ARM11}
 \end{figure}
 
-
-\section{Clock Network Design for Through-Silicon Via (TSV) Based 3D ICs} \label{sec:tsv_design}
-Today's ICs are often built as 3D stacked ICs. The different dies are connected using through-silicon vias (TSVs). The 3D clock tree synthesis problem can therby be formulated as follows: Given are a set of sinks, a TSV bound (the user defined maximum of TSVs between adjacent dies), a clock source location and the wire and TSV parasitics. Now a clock network has to be constructed such that all sinks are connected to the clock, the TSV count is under the TSV bound, the skew is minimized, the slew is below the constraint and the wire length and the clock power are minimized.\\
-To solve this problem X. Zhao et al. \cite{b2} developed a 3D clock tree synthesis algorithm that consist of two steps:
-\begin{enumerate}
-\item 3D abstract tree generation to determin how to connect the sinks to each other.
-\item Slew-aware buffering and embedding to determine the exact routing topology.
-\end{enumerate}
-
-\subsection{3D Abstract Tree Generation}
-The abstract tree generation is an iterative algorithm. In each step, the set of sinks is divided into two subsets using two different methods:
-\begin{itemize}
-\item Z-cut: if the TSV bound is one, the set of sinks is divided into two subsets such that all sinks from the same die belong to the same subset. The two new subsets are connected using a TSV. When the sinks are located on $N$ dies, $N-1$ iterations of Z-cuts are needed.
-\item X/Y-cut: if the TSV bound is larger than one or all sinks in the set belong to the same die. The set is divided geometrically by a horizontal line. The Z-dimenstion is ignored. The TSV bound before the X/Y-cut is then redistributed to the new subsets.
-\end{itemize}
-An example for a X/Y-cut followed by two Z-cuts is shown in Fig. \ref{fig:cuts}.
+An alternative SoC design with a OCP is shown in Fig. \ref{fig:AP}. In our case study the Application Processor is an ARM11 CPU and the OCP is a MIPS32 4KS.
 
 \begin{figure}[htbp]
-	\includegraphics[width=1\linewidth]{img/cuts.png}
+	\includegraphics[width=\linewidth]{img/Pictures/AP.png}
 	\centering
-	\caption{X/Y-cut followed by two Z-cuts. Source: \cite{b2}}
-	\label{fig:cuts}
+    \caption{SoC Design with Offload Co-Processor(OCP): \cite{b2}}
+    \label{fig:AP}
 \end{figure}
 
-The algorithm is finished when each sink is in its own set. The result of the algorithm for a two die IC under various TSV bounds is shown in Fig. \ref{fig:tree_examples}.
-
-\begin{figure}[htbp]
-	\includegraphics[width=1\linewidth]{img/tree_examples.png}
-	\centering
-	\caption{The 3D abstract tree generation under various TSV bounds. (a) shows a top view, (b) shows a 3D view and (c) show the resulting binary tree where the squares denote TSVs. Source: \cite{b2}}
-	\label{fig:tree_examples}
-\end{figure}
-
-After the binary tree is calculated, the slew-aware buffering and embedding takes place.
-
-\subsection{Impact of the TSV count on the clock power}
-The more TSVs are used, the smaller becomes the overall wire length. This leads to a smaller wire RC and therefore the ciruit consumes less power. But after a certain point the capacitance of the inserted TSVs are too large what then results in an increasing power consumtion. Hence, there is a minimum power point for a certain number of TSVs. This point can be found by sweeping the TSV bound in the simulation as it was done for Fig. \ref{fig:tsv_sweep}.
-
-\begin{figure}[htbp]
-	\includegraphics[width=1\linewidth]{img/tsv_sweep.png}
-	\centering
-	\caption{Clock power over TSV count for a two die stack using 100fF TSVs. The red star denotes the predictet optimum power point found by 3D-MMM-ext algorith which was developed in \cite{b2}. Source: \cite{b2}}
-	\label{fig:tsv_sweep}
-\end{figure}
-
-The exhaustive search by sweeping the TSV bound is often not practicable due to its time-consuming runtime. For this reason X. Zhao et al. \cite{b2} developed the 3D-MMM-ext algorithm that can predict the minimum power point in a good manner. Morover, X. Zhao et al. showed that using the optimal TSV count can save up to 36\% of the total power consumed by six-die stacked IC.
-
+\subsection{Considerations for OCP Design}
+\subsubsection{Different ISA}
+\subsubsection{Interrupt Overheads}
+\subsubsection{Interrupt Overflow}
+\subsubsection{Hardware Acceleration}
 
 \section{Conclusion}
-As a conclusion one can say that a well designed clock network can save a lot of power. This can be achieved by voltage scaling, but in this case the clock network has to be designed in different way than it would be done for a super-threshold regime. M. Seok et al. showed that for ULV applications unbuffered clock trees consume less power and are in addition to that more robust to MOSFET process variations and therfore show a better skew and slew behaviour.
-
-For nowadays 3D staced ICs, there is an optimal number of TSVs regarding the power consumtion. This is because more TSVs can reduce the overall wire lenght (and therefore the wire RC), but too many TSVs lead to a too large capacitance.
-
-So we can finally conclude that the consumed power by the clock can drastically be reduced by choosing the optimal routing topology. Afterwards, the power can still be reduced by measures such as voltage scaling.
-
-%\subsection{Figures and Tables}
-%\paragraph{Positioning Figures and Tables} Place figures and tables at the top and 
-%bottom of columns. Avoid placing them in the middle of columns. Large 
-%figures and tables may span across both columns. Figure captions should be 
-%below the figures; table heads should appear above the tables. Insert 
-%figures and tables after they are cited in the text. Use the abbreviation 
-%``Fig.~\ref{fig}'', even at the beginning of a sentence.
-
-%\begin{table}[htbp]
-%\caption{Table Type Styles}
-%\begin{center}
-%\begin{tabular}{|c|c|c|c|}
-%\hline
-%\textbf{Table}&\multicolumn{3}{|c|}{\textbf{Table Column Head}} \\
-%\cline{2-4} 
-%\textbf{Head} & \textbf{\textit{Table column subhead}}& \textbf{\textit{Subhead}}& \textbf{\textit{Subhead}} \\
-%\hline
-%copy& More table copy$^{\mathrm{a}}$& &  \\
-%\hline
-%\multicolumn{4}{l}{$^{\mathrm{a}}$Sample of a Table footnote.}
-%\end{tabular}
-%\label{tab1}
-%\end{center}
-%\end{table}
-
-%\begin{figure}[htbp]
-%\centerline{\includegraphics{fig1.png}}
-%\caption{Example of a figure caption.}
-%\label{fig}
-%\end{figure}
+Circuit design techniques are required to tackle the major challenges of the
+near-threshold processor design. Architectural design techniques are required
+to add additional power and energy saving. We have demonstrated from the OCP
+based SoC design that the battery life can be extended by 3.5 times by adapting
+the hybrid approach.
 
 \begin{thebibliography}{00}
 \bibitem{b1} J.Zhou, T.H.Kim and Y.Lian, ``Near-threshold processor design techniques for power-constrained 
@@ -219,10 +192,10 @@ computing devices,'' 2017 IEEE 12th International Conference on ASIC (ASICON), G
 \bibitem{b2} J. Tang, C. Liu, Y. L. Chou and S. Liu, ``OCP: Offload Co-Processor
 for energy efficiency in embedded mobile systems,'' 2013 IEEE 24th International Conference on Application-Specific 
 Systems, Architectures and Processors, Washington, DC, 2013, pp. 107-110
-\bibitem{b3}
-\bibitem{b4}
-\bibitem{b5}
-\bibitem{b6}
-\bibitem{b7}
+\bibitem{b3} Y. S. Lin, et al., ``Single stage static level shifter designfor subthreshold to I/O voltage conversion,in Proc. ACM/IEEE Int. Symp. Low Power Electron. Design (ISLPED), Aug. 1113, 2008, pp.197200
+\bibitem{b4} S. Lutkemeier, et al., ``A subthreshold to above-threshold level shifter comprising a wilson current mirror,'' IEEE Trans. Circuits Syst. II, Exp. Briefs, vol. 57, no. 9, pp. 721724, Sep. 2010
+\bibitem{b5} Y. Osaki, et al., ``A low-power level shifter with logic error correction for extremely low-voltage digital CMOS LSIs,'' IEEE J. Solid-State Circuits, vol. 47, no. 7, pp.17761783, Jul. 2012
+\bibitem{b6} J. Zhou, et al., ``An Ultra-Low Voltage Level Shifter Using Revised Wilson Current Mirror for Fast and Energy-Efficient Wide-Range Voltage Conversion from Sub-Threshold to I/O Voltage,'' Circuits and Systems I: Regular Papers, IEEE Transactions on , vol.62, no.3, pp.697,706, March 2015
+\bibitem{b7} N. Priyantha, D. Lymberopoulos, J. Liu, ``EERS: Energy Efficient Responsive Sleeping on Mobile Phones, in Proceedsings of the International Workshop on Sensing for App Phones'', November, 2010
 \end{thebibliography}
 \end{document}
