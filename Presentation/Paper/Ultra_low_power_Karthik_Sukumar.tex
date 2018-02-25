@@ -37,7 +37,7 @@ In this paper the works of J.Zhou et al. \cite{b1} and J.Tang et al. \cite{b2}
 on design techniques for an ultra low-power processor is reported.
 
 J.Zhou et al. focusses on Near-Threshold processor design for Ultra low power
-processors. The paper discusses these design challenges, performance issue and solutions
+processors. The paper discusses the design challenges, performance issues and solutions
 of the above. The circuit level power reduction techniques are addressed here.
 
 J.Tang et al. discusses a case study by using GPS to demonstate that an
@@ -73,7 +73,7 @@ level improvements to preseve scalabililty.
 Near-Threshold designs refer to operating the transistor slightly above the
 threshold region. The major advantage of Near-Threshold over Super-Threshold operation is the decrese in energy per operation.
 Dynamic energy per operation increases quadratically with voltage as ($P_{dyn}=fC_LV_{DD}^2$), where as static energy per operation increases with decreasing voltage. This is because the static power
-is constant and the static energy consumption increases with increasing time period per operation (As max frequency of operation reduces with increasing voltage).
+is constant and the static energy consumption increases with increasing time period per operation (As max frequency of operation reduces with decresing supply voltage).
 Hence by adding the two we get a relationship as shown in Fig. \ref{fig:Energy_comparison}. Although we see that the Sub-Threshold operation
 has lower energy than the Near-Threshold, we want to find a balance between
 performance and energy per operation and hence we will investigate the
@@ -113,12 +113,13 @@ and high energy efficiency as shown in Fig. \ref{fig:Level_shifter_solution}.
 \subsection{SRAM Design Challenges}
 There are 2 issue with Near-Threshold SRAM design. One is that many cells share the read/write interface and the second being that the SRAM prefers small transistors for increased density. These conventions make it difficult for them to function in the Near-threshold region. Small transistors have small current driving strength and large variation at low voltages, causing read/write disturbances.
 
-The solution to both the issues is to have a decoupled read write interface namely an 8T/10T SRAM design. Although not as dense as the traditional 6T design, they are more resistant to manufacturing variabilities as well.
+The solution to both the issues is to have a decoupled read write interface namely an 8T/10T SRAM design. Although not as dense as the traditional 6T design, they are more resistant to manufacturing variabilities.
 
 \section{Performance Improvement for Near-Threshold Devices} \label{sec:Perf_challenges}
 
 \subsection{Near-Threshold Device Sizing}
-It has been found that the parasitic effects dominate more in the Near-Threshold than the Super-Threshold regions. Reverse Short Channel Effects (RSCE) for example is rather strong in the Near-Threshold region. One way to account for this is by carefully sizing the channel widths and the lengths to 
+It has been found that the parasitic effects dominate more in the Near-Threshold than the Super-Threshold regions. Reverse Short Channel Effects (RSCE) for example is rather strong in the Near-Threshold region. As opposed to DIBL(Drain Induced Barrier Lowering) the threshold voltage decreases with increasing Channel length. Another effect is INWE(Inverse Narrow Width Effect) which causes the threshold voltage to decrease as the transistor width decreases. Minimum finger widths are therefore used to reduce delays and improve energy efficiency. By making use of the minimun-sizing method and by selectively tuning the length of critical and non-critical paths the energy efficiency can be improved while meeting the performance specification.
+
 \subsection{Wide Dynamic Voltage Scaling}
 Designing with a large voltage swing from Near/Sub-Threshold voltages to Super-Threshold voltages (e.g. from 280mV to 1.1V) enables the processors to go to deep sleep mode when not active and spull up to full power when active. This fast voltage switching is critical for energy efficiency without loss of performance.
 \subsection{Parallel Processing}
@@ -129,7 +130,7 @@ Manfacturing variabilty plays vital part as it leads to large performance variat
 \subsection{Library Pruning}
 Its important to characterise the standard cells at low voltage, this way the one with large performance variations and poor performance are taken out e.g: Gates with 4 stacked transistors.
 \subsection{Pipeline Optimization}
-Optising pipeline depth has shown to decrease processor variabilty. It has been found that large logic depths reduce variabilties through the averaging effect. Therefore shallow pipelines with larger logic depth are adopted as a measure against process variations. As shown in Fig. \ref{fig:PplstageVSlogicdepth} the 2-stage pipeline with 75 logic gates per stage reduces the standard deviation by 19\% compared to design with 10 gates per pipeline stage.
+Optimising pipeline depth has shown to decrease processor variabilty. It has been found that large logic depths reduce variabilties through the averaging effect. Therefore shallow pipelines with larger logic depth are adopted as a measure against process variations. As shown in Fig. \ref{fig:PplstageVSlogicdepth} the 2-stage pipeline with 75 logic gates per stage reduces the standard deviation by 19\% compared to design with 10 gates per pipeline stage.
 
 \begin{figure}[htbp]
 	\includegraphics[width=\linewidth]{img/Pictures/PplstageVSlogicdepth.png}
@@ -162,7 +163,7 @@ commonly found in most mobile phones these days. In the power profile for the AP
 consuming 20mW before the interrupt occurs. The interrupt is serviced in 2ms (at
 1000mW) and the AP dosent transition to sleep mode immediately, instead it must operate
 at a lower frequency consuming 650mW for 100ms. It drops into yet another mode at
-400mW for another 100ms. Only after excuting in all these intermediate modes
+400mW for another 100ms. Only after executing in all these intermediate modes
 does the CPU go back into deep sleep. Therefore although the interrupt only
 takes 2ms to execute the application processor remains active for over 200ms
 consuming 60mJ of energy.
@@ -174,7 +175,7 @@ consuming 60mJ of energy.
     \label{fig:Power_profile_ARM11}
 \end{figure}
 
-\subsubsection{OCP SoC Design}
+\section{OCP Design}
 An alternative SoC design with a OCP is shown in Fig. \ref{fig:AP}. In our case study the Application Processor is an ARM11 CPU and the OCP is a MIPS32 4KS.
 
 \begin{figure}[htbp]
@@ -184,9 +185,9 @@ An alternative SoC design with a OCP is shown in Fig. \ref{fig:AP}. In our case 
     \label{fig:AP}
 \end{figure}
 
-\subsubsection{Energy Analysis}
+\subsection{Energy Analysis}
 
-We assume a 1500mAh battery at 3.7V. The values of different modes of both the processors are shown in Table. \ref{tab:powercons}. The $P_{AP_active}$ is derived by 60mJ/200ms, which is 300mW.
+We assume a 1500mAh battery at 3.7V. The values of different modes of both the processors are shown in Table. \ref{tab:powercons}. The $P_{AP-active}$ is derived by 60mJ/200ms, which is 300mW.
 
 \begin{center}
 \captionof{table}{Power Consumption of different modes} \label{tab:powercons}
@@ -215,7 +216,7 @@ The above Equation. \ref{eq:1} holds for the case of using just the AP. We found
     E = P_{AP-sleep}T_2 + P_{OCP-sleep}(1-A_2)T_2 \\
     + P_{OCP-active}A_2T_2
 \end{multline}
-The Equation. \ref{eq:1} holds for the case of using the AP along with the OCP. We found out through measurements that the $A_2$=1.5\% and $T_2$=15ms. The battery would last for a total of 254 hours under these conditions
+The Equation. \ref{eq:2} holds for the case of using the AP along with the OCP. We found out through measurements that the $A_2$=1.5\% and $T_2$=15ms. The battery would last for a total of 254 hours under these conditions
 
 Using Equations \ref{eq:1} and \ref{eq:2} we infer that the we can get a battery life improvement of 3.5 times compared to the baseline.
 \subsection{Considerations for OCP Design}
@@ -229,8 +230,7 @@ The OCP should have a short interrupt handler, where the context switch
 occurs and the registers need to be saved on the stack. The transition can be
 performed between 20-30 cycles of overhead for an OCP.
 \subsubsection{Interrupt Overflow}
-In the case that the interrupt cant be handled by the OCP, it needs to be
-forward the interrupt or user request back to the application processor.
+In the case that the interrupt can´t be handled by the OCP, it needs to forward the interrupt or user request back to the application processor.
 \subsubsection{Hardware Acceleration}
 Interrupt overheads can be minimised by using hardware accelerators based
 context switches and interrupt overflows handling.

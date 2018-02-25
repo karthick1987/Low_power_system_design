@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.27)  16 FEB 2018 11:19
+This is pdfTeX, Version 3.14159265-2.6-1.40.16 (TeX Live 2015/Debian) (preloaded format=pdflatex 2017.8.27)  25 FEB 2018 15:26
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -862,7 +862,7 @@ File: img/Pictures/PplstageVSlogicdepth.png Graphic file (type png)
 
 <use img/Pictures/PplstageVSlogicdepth.png>
 Package pdftex.def Info: img/Pictures/PplstageVSlogicdepth.png used on input li
-ne 135.
+ne 136.
 (pdftex.def)             Requested size: 252.0pt x 166.10657pt.
  [2 <./img/Pictures/Level_shifter_solution.png> <./img/Pictures/PplstageVSlogic
 depth.png>]
@@ -871,16 +871,22 @@ File: img/Pictures/Power_profile_ARM11.png Graphic file (type png)
 
 <use img/Pictures/Power_profile_ARM11.png>
 Package pdftex.def Info: img/Pictures/Power_profile_ARM11.png used on input lin
-e 171.
+e 172.
 (pdftex.def)             Requested size: 252.0pt x 141.56616pt.
 
 <img/Pictures/AP.png, id=25, 310.761pt x 271.7352pt>
 File: img/Pictures/AP.png Graphic file (type png)
  <use img/Pictures/AP.png>
-Package pdftex.def Info: img/Pictures/AP.png used on input line 181.
+Package pdftex.def Info: img/Pictures/AP.png used on input line 182.
 (pdftex.def)             Requested size: 252.0pt x 220.35721pt.
 
 [3 <./img/Pictures/Power_profile_ARM11.png> <./img/Pictures/AP.png>]
+LaTeX Font Info:    Try loading font information for TS1+ptm on input line 233.
+
+
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/ts1ptm.fd
+File: ts1ptm.fd 2001/06/04 font definitions for TS1/ptm.
+)
 
 ** Conference Paper **
 Before submitting the final camera ready copy, remember to:
@@ -896,28 +902,28 @@ Before submitting the final camera ready copy, remember to:
 
 ] (./Ultra_low_power_Karthik_Sukumar.aux) ) 
 Here is how much of TeX's memory you used:
- 5355 strings out of 494860
- 81340 string characters out of 6177602
- 142120 words of memory out of 5000000
- 8586 multiletter control sequences out of 15000+600000
- 35813 words of font info for 71 fonts, out of 8000000 for 9000
+ 5378 strings out of 494860
+ 81682 string characters out of 6177602
+ 141120 words of memory out of 5000000
+ 8605 multiletter control sequences out of 15000+600000
+ 36127 words of font info for 72 fonts, out of 8000000 for 9000
  36 hyphenation exceptions out of 8191
- 38i,8n,39p,520b,277s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 38i,8n,39p,784b,277s stack positions out of 5000i,500n,10000p,200000b,80000s
 {/usr/share/texlive/texmf-dist/fonts
 /enc/dvips/base/8r.enc}</usr/share/texlive/texmf-dist/fonts/type1/public/amsfon
 ts/cm/cmmi10.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/
-cmmi5.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmmi7.p
-fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.pfb></us
-r/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr/share/
-texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share/texliv
-e/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texlive/texmf
--dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fonts/typ
-e1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/u
-tmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.pfb>
-Output written on Ultra_low_power_Karthik_Sukumar.pdf (4 pages, 621649 bytes).
+cmmi7.pfb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr10.p
+fb></usr/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmr7.pfb></usr
+/share/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy10.pfb></usr/share
+/texlive/texmf-dist/fonts/type1/public/amsfonts/cm/cmsy7.pfb></usr/share/texliv
+e/texmf-dist/fonts/type1/urw/times/utmb8a.pfb></usr/share/texlive/texmf-dist/fo
+nts/type1/urw/times/utmbi8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/
+times/utmr8a.pfb></usr/share/texlive/texmf-dist/fonts/type1/urw/times/utmri8a.p
+fb>
+Output written on Ultra_low_power_Karthik_Sukumar.pdf (4 pages, 614745 bytes).
 PDF statistics:
- 73 PDF objects out of 1000 (max. 8388607)
- 45 compressed objects within 1 object stream
+ 69 PDF objects out of 1000 (max. 8388607)
+ 42 compressed objects within 1 object stream
  0 named destinations out of 1000 (max. 500000)
  31 words of extra memory for PDF output out of 10000 (max. 10000000)
 
